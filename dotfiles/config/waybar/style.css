@@ -1,0 +1,120 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 16px;
+  font-weight: 500;
+}
+
+window#waybar {
+  background-color: #1E1E2E;
+  color: #CDD6F4;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-bottom: 0px solid #313244;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  color: #BAC2DE;
+  border-radius: 5px;
+}
+
+#workspaces button.persistent {
+  color: #89B4FA;
+}
+
+#workspaces button.urgent {
+  background-color: #F38BA8;
+}
+
+#workspaces button:hover {
+  background-color: #89B4FA;
+  color: #CDD6F4;
+}
+
+#workspaces button.empty {
+  color: #CBA6F7;
+}
+
+#workspaces button.active {
+  color: #F9E2AF;
+}
+
+
+widget > * {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.modules-left > widget > * {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.modules-left > widget:first-child > * {
+  margin-left: 6px;
+}
+
+.modules-left > widget:last-child > * {
+  margin-right: 18px;
+}
+
+.modules-right > widget > * {
+  padding: 0 12px;
+  margin-left: 6px;
+  margin-right: 0;
+  color: #1E1E2E;
+  background-color: #89B4FA;
+  border-radius: 20px;
+}
+
+/* Убираем общее объединение для первого и последнего */
+.modules-right > widget:first-child > * {
+  border-radius: 20px;
+  margin-left: 6px;
+}
+
+.modules-right > widget:last-child > * {
+  border-radius: 20px;
+  margin-right: 6px;
+}
+
+
+
+#mode {
+  background: transparent;
+  color: #F38BA8;
+}
+
+@keyframes blink {
+  to {
+    color: #F5C2E7;
+  }
+}
+
+#battery.critical:not(.charging) {
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #1E1E2E;
+}
+
+tooltip {
+  border-radius: 5px;
+  background: #313244;
+}
+
+tooltip label {
+  color: #CDD6F4;
+}
+

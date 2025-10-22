@@ -1,0 +1,211 @@
+.dashboardbox {
+  background-color: transparent;
+  color: $fg;
+}
+
+.headerbox {
+  padding: 8px 10px 6px;
+  .userbox {
+    .pfp {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 32px;
+      min-width: 32px;
+      border-radius: 50px;
+    }
+    .pcname {
+      font-family: Product Sans;
+      .sep {
+        color: $blue;
+      }
+    }
+  }
+  .searchbox {
+    .searchinput {
+      background-color: $bg;
+      padding: 5px 0px;
+      border-radius: 50px;
+      transition: all ease .2s;
+      &:hover { background-color: $bgSecondary; }
+      &:active { background-color: $contrastbg; }
+      .searchinput-content {
+        padding: 0px 200px 0px 10px;
+        font-family: Product Sans;
+        .icon {
+          font-family: Iosevka Nerd Font;
+          color: $blue;
+          margin-right: 12px;
+        }
+        .placeholder {
+          color: $lightblack;
+        }
+      }
+    }
+  }
+}
+
+//---------------------------------------------------------------------
+.content-container {
+  .contentbox {
+    background-color: transparent;
+    //padding: 25px;
+
+    .firstcol {
+      .time-container {
+        background-color: $black;
+        border-radius: 12px;
+        padding: 10px;
+        min-width: 240px;
+        .time-side {
+          padding: 0 40px;
+          font-size: 60px;
+          .minute-side {
+            color: #D35D6E;
+          }
+        }
+        .day-side {
+          font-size: 16px;
+          font-weight: bold;
+          color: #90c861;
+        }
+      }
+      .date-container {
+        background-color: $black;
+        border-radius: 12px;
+        padding: 12px;
+        .number_day {
+          padding-top: 10px;
+          font-size: 35px;
+          color: #D35D6E;
+        }
+        .month {
+          font-weight: bold;
+        }
+      }    
+      .chart-container {
+        background-color: $black;
+        border-radius: 12px;
+
+        .body .container {
+          padding: 10px;
+          .chart-container {
+            background-color: $lightblack;
+            border-radius: 3em;
+            .chart {
+              color: $blue;
+              label {
+                
+                padding: 1em;
+                font-size: 30px;
+              }
+            }
+            .chart-icon {
+              background-color: $black;
+              border-radius: 3em;
+              padding: 12px 5px;
+              margin: 0.5em;
+              font-family: Iosevka Nerd Font;
+              font-size: 22px;
+              // nf alignment issues (again).
+              &.cpu { padding: 12px 11px 12px 1px; }
+              &.ram { padding: 12px 10px 12px 3px; }
+              &.temp { padding: 13px 7px 12px 5px; }
+              &.disk { padding: 13px 7px 12px 5px; }
+            }
+          }
+        }
+      }
+      .player-container {
+        background-color: $black;
+        border-radius: 12px;
+
+        .musicart-side {
+          background-size: 92px;
+          min-height: 90px;
+          min-width: 90px;
+          margin: 15px 5px 15px 15px;
+          border-radius: 6px;
+        }
+
+        .musicinfo-side {
+          font-size: 15px;
+          margin: 25px 0 0 5px;
+          font-weight: bold;
+          border-radius: 10px;
+          min-width: 40px;
+        }
+
+        .musicbtn-side {
+          padding: 8px 0 5px 20px;
+
+          .btn {
+            padding: 0 0 0 15px;
+            font-size: 16px;
+            padding-right: 30px;
+            transition: color 0.2s ease;
+            background-color: $yellow;
+
+            &:hover {
+              color: #D35D6E;
+            }
+          }
+        }
+      }
+      .powerbuttons-container {
+        .btn {
+          background-color: $black;
+          border-radius: 12px;
+          font-size: 32px;
+          font-weight: bold;
+          padding: 1em;
+          transition: background-color 0.2s ease;
+          margin: 10px;
+          &:hover {
+            background-color: $lightblack;
+          }
+          &.btn-logout   { color: #BF616A; }
+          &.btn-sleep    { color: #A3BE8C; }
+          &.btn-reboot   { color: #EBCB8B; }
+          &.btn-poweroff { color: #88C0D0; }
+        }
+      }
+    }
+     }
+  .footer {
+    background-color: $bg;
+    padding: 10px 0px;
+    font-family: Product Sans;
+    .protipbox {
+      .icon {
+        font-family: Iosevka Nerd Font;
+        color: $yellow;
+      }
+    }
+  }
+}
+
+
+.notification-center {
+  background-color: $black;
+  min-width: 800px;
+  min-height:  100px;
+  
+  border-radius: 12px;
+  padding: 1em;
+  .notif-block {
+    background-color: $lightblack;
+    border-radius: 0.5em;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    .notif-title {
+      font-weight: bold;
+      color: $blue;
+    }
+    .notif-body {
+      font-size: 0.9em;
+      //color: $gray;
+    }
+  }
+}
+

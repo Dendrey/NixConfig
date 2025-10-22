@@ -1,0 +1,218 @@
+{"modules-left": ["hyprland/workspaces" , "hyprland/window"],
+  "modules-right": ["tray", "mpris", "custom/weather", "pulseaudio", "backlight", "battery",  "network", "hyprland/language", "clock"],
+      "clock": {
+        "format": "{:%H:%M} ",
+        "format-alt": "{:%a %b-%d %R} ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-scroll-up": "tz_up",
+                    "on-scroll-down": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+  "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "show-special": true,
+         "warp-on-scroll": true,
+        "persistent-workspaces": {
+            "*": 10,
+        },
+         "format": "{icon}",
+         "format-icons": {
+/*
+             "1": "",
+             "2": "",
+             "3": "",
+             "4": "",
+             "5": "",
+             "active": "", // окно в фокусе
+             "empty" : "", // пустые рабочие столы
+             "persistent": " ",  //по умолчанию
+             "default": "", // дополнительные занятые окна
+             "focused": " ",
+*/
+             "magic": "",
+             "active": "󰮯", 
+             "urgent": "",
+             "persistent": "󰊠",
+             "empty": "󰑊",
+         }
+     },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": [""],
+    "scroll-step": 10.0
+  },
+  
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰚥",
+    "format-plugged": "{capacity}% 󰚥",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{volume}% {icon}  {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "  {icon} {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": "",
+        "format-source-muted": " ",
+        "format-icons": {
+            "headphone": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pgrep pavucontrol && pkill pavucontrol || pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send 'Sound toggled'", // Правая кнопка мыши включает/выключает звук
+        "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && notify-send 'Mic toggled'"
+    }, 
+
+  "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "({signalStrength}%) ",
+        "format-ethernet": "󰈀",
+        "tooltip-format": "{essid}  {bandwidthDownBits}   {bandwidthUpBits}",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected",
+        //"format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+"hyprland/language": {
+	    "format": "{}",
+	    "format-en": "EN",
+	    "format-ru": "RU",
+        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+	},
+
+"hyprland/window": {
+  "format": "{}",
+  "max-length": 50,
+  "icon": true,
+  "separate-outputs": true,
+  "tooltip": false
+},
+"custom/app-menu": {
+    "format": " 󰣇", // Здесь иконка меню
+    "on-click": "pgrep wofi && pkill wofi || wofi --show drun -I",  // Открывает rofi для выбора приложения
+    "on-click-right": "ags run ~/.config/ags/MediaPlayer.ts || kill $(pgrep -f MediaPlayer.ts)",
+    "tooltip": false
+},
+"custom/updates": {
+    "format": "{} {icon}",
+    "return-type": "json",
+    "format-icons": {
+        "has-updates": "",
+        "updated": ""
+    },
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300",
+    "on-click": "zenity --question --text='Do you want to update all packages?' --title='Update System' && kitty paru -Syu --noconfirm || notify-send 'Update cancelled'"  
+},
+
+"custom/weather": {
+    "exec": "${HOME}/.config/waybar/scripts/get_weather.sh Novosibirsk+Russia",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600
+},
+
+"custom/media": {
+    "format": "{icon} {text}",
+    "escape": true,
+    "return-type": "json",
+    "max-length": 25,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl stop",
+    "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+},
+"custom/prev": {
+  "format": " ",
+  "on-click": "playerctl previous",
+  "tooltip": false
+},
+
+"custom/next": {
+  "format": "  ",
+  "on-click": "playerctl next",
+  "tooltip": false
+},
+"group/media": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/media",
+			"custom/prev",
+			"custom/next"
+		]
+	},
+
+"mpris": {
+    "format": "{player_icon} {title}",
+    "format-paused": "{player_icon} {title}",
+    "format-icons": {
+      "Playing": "󰏤",
+      "Paused": "󰐊",
+      "Stopped": "󰐊"
+    },
+    "player-icons": {
+      "default": "",
+      "spotify": "",
+      "firefox": "",
+      "chrome": "",
+      "vlc": "󰕼"
+    },
+    "max-length": 20,
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous",
+    "on-scroll-down": "playerctl position 5+",
+    "on-scroll-up": "playerctl position 5-",
+    "tooltip": true,
+    "tooltip-format": "{artist} - {title}"
+  },
+
+"custom/power-menu": {
+    "format": "", // Иконка для кнопки питания
+    "on-click": "poweroff"  // Команда для выключения системы
+}
+}
