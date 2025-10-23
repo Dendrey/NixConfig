@@ -26,6 +26,21 @@
     neofetch amnezia-vpn yazi zip xz unzip p7zip btop
     hyprshot hyprpicker hyprlock hyprpaper mako
     pavucontrol networkmanagerapplet wofi eww obsidian
+
+    starship        # красивый prompt
+    zoxide          # "умная" навигация по директориям
+    eza             # улучшенный ls
+    bat             # cat с подсветкой синтаксиса
+    fd              # быстрый поиск файлов
+    ripgrep         # поиск текста внутри файлов
+    dust            # визуальный du (анализ занятого места)
+    procs           # визуальный ps (просмотр процессов)
+    fzf             # fuzzy finder для истории и файлов
+
+    # --- Git утилиты (закомментированы) ---
+    # delta     # улучшенный просмотр diff и log (цвета, подсветка)
+    # lazygit   # TUI-интерфейс для git (удобная визуализация)
+    # ghq       # организация локальных git-репозиториев
   ];
 
   xdg.userDirs = {
@@ -78,7 +93,8 @@
         userName = "Dendrey";
         userEmail = "andrievich.dd@phystech.edu";
       };
-    
+
+
   
 
   
