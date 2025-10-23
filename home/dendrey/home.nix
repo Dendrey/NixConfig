@@ -69,6 +69,11 @@
     	    		source = ../../dotfiles/config/fish;
     	    		recursive = true;
     	    	};
+
+		"fish/conf.d"={
+    	    		source = ../../dotfiles/config/fish/conf.d;
+    	    		recursive = true;
+    	    	};
     	    	
 	    "kitty"={
 	        		source = ../../dotfiles/config/kitty;
@@ -85,6 +90,8 @@
 	        		recursive = true;
 	        	};
     };
+
+    home.file.".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "/home/dendrey/nixos/dotfiles/config/starship.toml";
 
 
 
