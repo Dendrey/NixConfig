@@ -49,6 +49,26 @@
     		source = ../../dotfiles/config/hypr;
     		recursive = true;
     	};
+
+    	"fish"={
+    	    		source = ../../dotfiles/config/fish;
+    	    		recursive = true;
+    	    	};
+    	    	
+	    "kitty"={
+	        		source = ../../dotfiles/config/kitty;
+	        		recursive = true;
+	        	};
+
+	    "mako"={
+	        		source = ../../dotfiles/config/mako;
+	        		recursive = true;
+	        	};
+
+	    "waybar"={
+	        		source = ../../dotfiles/config/waybar;
+	        		recursive = true;
+	        	};
     };
 
 
