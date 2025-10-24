@@ -91,7 +91,7 @@
 	        	};
     };
 
-    xdg.configFile."starship.toml".source = config.lib.file.mkOutOfStoreSymlink "../../dotfiles/config/starship.toml";
+    xdg.configFile."starship.toml".source = ../../dotfiles/config/starship.toml;
 
 
 
