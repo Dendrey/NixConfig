@@ -91,7 +91,7 @@
 	        	};
     };
 
-    home.file.".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink "/home/dendrey/nixos/dotfiles/config/starship.toml";
+    xdg.configFile."starship.toml".source = config.lib.file.mkOutOfStoreSymlink "../../dotfiles/config/starship.toml";
 
 
 
