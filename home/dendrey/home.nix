@@ -1,5 +1,5 @@
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # TODO please change the username & home directory to your own
@@ -24,7 +24,8 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     neofetch amnezia-vpn yazi zip xz unzip p7zip btop
-    hyprshot hyprpicker hyprlock hyprpaper mako
+    hyprshot hyprpicker hyprlock hyprpaper
+    # mako
     pavucontrol networkmanagerapplet wofi eww obsidian
 
     starship        # красивый prompt
@@ -41,7 +42,12 @@
     # delta     # улучшенный просмотр diff и log (цвета, подсветка)
     # lazygit   # TUI-интерфейс для git (удобная визуализация)
     # ghq       # организация локальных git-репозиториев
+    inputs.caelestia-shell.packages."x86_64-linux".default
+    papirus-icon-theme
+
   ];
+
+qt.iconTheme = "Papirus";
 
   xdg.userDirs = {
     enable = true;

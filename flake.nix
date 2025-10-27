@@ -6,6 +6,12 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }: {
@@ -26,6 +32,7 @@
           home-manager.useUserPackages = true;
 
           home-manager.users.dendrey = import ./home/dendrey/home.nix;
+          home-manager.extraSpecialArgs = { inherit inputs; };
         }
       ];
     };

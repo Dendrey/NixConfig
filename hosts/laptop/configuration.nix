@@ -42,6 +42,8 @@
     micro wl-clipboard cliphist playerctl libnotify
     brightnessctl jq lazygit ffmpeg imagemagick usbutils
     mpv fzf cava quickshell cassette
+
+    neovim
   ];
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
