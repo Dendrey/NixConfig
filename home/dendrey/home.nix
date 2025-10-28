@@ -41,6 +41,8 @@
     # delta     # улучшенный просмотр diff и log (цвета, подсветка)
     # lazygit   # TUI-интерфейс для git (удобная визуализация)
     # ghq       # организация локальных git-репозиториев
+
+    # neovim
   ];
 
   xdg.userDirs = {
@@ -100,6 +102,34 @@
         userName = "Dendrey";
         userEmail = "andrievich.dd@phystech.edu";
       };
+
+  programs.neovim = {
+    enable = true;
+    withNodeJs = true; 
+    # extraLuaPackages = luaPkgs: with luaPkgs; [ luarocks magick jsregexp ];
+    extraPackages = with pkgs; [
+      inotify-tools
+      clang
+      # ghostscript
+      # hlint
+      # imagemagick
+      lazygit
+      # lua-language-server
+      # lua54Packages.luarocks
+      # lua54Packages.lua
+      # lua54Packages.jsregexp
+      # luajit
+      # manix
+      # mermaid-cli
+      # nginx-language-server
+      # nil
+      # nixd
+      # nixfmt-classic
+      # poppler_utils
+      # tectonic
+      tree-sitter
+    ];
+  };
 
 
   
