@@ -47,12 +47,23 @@
     # Администрирование
     btop
     fastfetch
+
+    noctalia-shell # все красивости разом: обои, бар, и многое другое
+
+    grim # тоже скриншоты, но проще
+    slurp
+      
+    # OCR движок и языковые пакеты
+    tesseract
+    # tesseract4Releases.tesseract-data-rus # Русский язык
+    # tesseract4Releases.tesseract-data-eng # Английский язык
+    zbar # Для чтения QR-кодов (zbarimg)
   ];
 
   # Центр уведомлений SwayNC
-  services.swaync = {
-    enable = true;
-  };
+  # services.swaync = {
+  #   enable = true;
+  # };
 
   # Автозапуск демона монтирования флешек
   services.udiskie = {

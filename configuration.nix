@@ -35,6 +35,7 @@
   # Оптимизация питания и аккумулятора (ThinkPad X1 Carbon)
   services.power-profiles-daemon.enable = true; # Идеально работает с процессорами Intel 12-го поколения
   services.thermald.enable = true;              # Защита от перегрева
+  services.upower.enable = true; # Отслеживание состояние аккумулятора и энергопотребления
   
   # Автомонтирование флешек и файловые системы
   services.udisks2.enable = true;
