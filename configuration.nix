@@ -18,7 +18,7 @@
   networking.networkmanager.enable = true;
 
   # Часовой пояс и локаль
-  time.timeZone = "Asia/Novosibirsk";
+  time.timeZone = "Europe/Moscow";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "ru_RU.UTF-8";
@@ -100,6 +100,7 @@
     lm_sensors
     brightnessctl
     playerctl
+    libnotify
   ];
 
   # Разрешить проприетарные пакеты (драйверы, Steam, Obsidian и т.д.)
@@ -118,6 +119,12 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.dendrey = import ./home.nix;
+  };
+
+  # Системный редактор по умолчанию
+  environment.variables = {
+    EDITOR = "micro";
+    VISUAL = "micro";
   };
 
   system.stateVersion = "26.05";

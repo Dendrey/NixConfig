@@ -36,12 +36,17 @@
     hyprshot
     hyprpicker
     hyprlock
+    hypridle
     hyprpaper
     wl-clipboard   # Буфер обмена
     cliphist       # История буфера обмена
     
     # VPN и Сеть
     networkmanagerapplet
+
+    # Администрирование
+    btop
+    fastfetch
   ];
 
   # Центр уведомлений SwayNC
